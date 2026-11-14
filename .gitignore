@@ -1,1 +1,35 @@
 .ipynb_checkpoints/
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+virtual-environments/
+.venv/
+venv/
+desktop.ini
+manufacturing_key_temp.txt
+
+Data/DataCoSupplyChainDataset.csv
+
+# Manufacturing Agent security files
+.manufacturing_api_key.enc
+.manufacturing_session_secret.enc
+.manufacturing_admin_hash.txt
+Manufacturing_Agent_Backup_*/
+security/.manufacturing_api_key
+
+api/main_backup_before_risk_integration.py
+api/main_backup_step137.py
+api/main_before_auth_restore.py
+api/main_before_authentication.py
+/AI_Manufacturing_Shortage_Agent1.ipynb
+/AI_Manufacturing_Shortage_Agent1_backup.ipynb
+
+# Local API authentication backup
+/api/main_before_cloud_auth.py.bak
