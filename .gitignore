@@ -33,3 +33,4 @@ api/main_before_authentication.py
 
 # Local API authentication backup
 /api/main_before_cloud_auth.py.bak
+requirements_before_render.txt.bak
