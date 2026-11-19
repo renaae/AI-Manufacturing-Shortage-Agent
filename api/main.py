@@ -1,4 +1,5 @@
 import os
+import math
 
 # Step 30C - Create the Manufacturing Shortage API
 
@@ -128,16 +129,21 @@ def predict_production_risk(supplier: SupplierInput):
     days_until_needed = 30
     delay_days = max(0, predicted_days - days_until_needed)
 
-    # Classify risk and recommend an action
-    if delay_days == 0:
-        risk_level = "LOW"
+     # Classify risk using Lovable's lead-time thresholds
+    whole_day_gap = math.ceil(delay_days)
+
+    if whole_day_gap == 0:
+        risk_level = "OK"
         recommended_action = "Continue monitoring the order"
-    elif delay_days <= 5:
+    elif whole_day_gap <= 6:
         risk_level = "MEDIUM"
         recommended_action = "Contact supplier to confirm delivery"
-    else:
+    elif whole_day_gap <= 13:
         risk_level = "HIGH"
         recommended_action = "Escalate risk and review alternate suppliers or expedite shipping"
+    else:
+        risk_level = "CRITICAL"
+        recommended_action = "Urgently escalate production risk and coordinate contingency plans"
 
     return {
         "predicted_lead_time_days": round(predicted_days, 2),
